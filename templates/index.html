@@ -1,0 +1,15 @@
+
+{% block content %}
+<div>
+    <p>hello {{ user.username }}</p>
+
+    <p> total file size: {{ size }} kbs</p>
+
+    {% for file in files %}
+        <p><a href={{ file }}>{{ file.title }}/{{ file.file }}</a></p>
+    {% endfor %}
+</div>
+
+{% endblock content %}
+
+

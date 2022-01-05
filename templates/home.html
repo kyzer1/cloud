@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {% if user.is_authenticated %}
+        <p> hello {{ user.username }}</p>
+        <div>
+            <ul>
+                <li>
+                    <a href="{% url 'files:my-files' %}"> files </a>
+                </li>
+                <li>
+                    <a href="/admin/">admin</a>
+                </li>
+                <li>
+                    <a href="{% url 'files:logout' %}"> logout </a>
+                </li>
+
+            </ul>
+    </div>
+    {% else %}
+
+        <div>
+            <ul>
+                <li>
+                    <a href="{% url 'files:my-files' %}"> files </a>
+                </li>
+                <li>
+                    <a href="/admin/">admin</a>
+                </li>
+                <li>
+                    <a href="{% url 'files:login' %}"> login </a>
+                </li>
+
+            </ul>
+        </div>
+    {% endif %}
+    {% block content %}
+
+    {% endblock content %}
